@@ -1,0 +1,53 @@
+{{define "Edit"}}
+{{template "_head"}}
+
+<body>
+    {{template "_menu"}}
+
+    <div class="container mt-4">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-5">Editando tarefa</h1>
+                <p class="lead">Insira os dados para editar a tarefa</p>
+            </div>
+        </div>
+        <form method="POST" action="update">
+            <input type="hidden" name="id" value="{{.Id}}">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="description">Descrição:</label>
+                        <input type="text" name="description" class="form-control" value="{{.Description}}" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="date">Data e Horário:</label>
+                        <input type="date" name="date" class="form-control" value="{{.Date}}" required>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="done">Feito:</label>
+                        <select name="done" class="form-control" required>
+                            <option value="true" {{if .Done}}selected{{end}}>Sim</option>
+                            <option value="false" {{if not .Done}}selected{{end}}>Não</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <button type="submit" value="salvar" class="btn btn-success">Editar</button>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-info" href="/">Voltar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+{{end}}

@@ -1,0 +1,52 @@
+{{define "New"}}
+{{template "_head"}}
+
+<body>
+    {{template "_menu"}}
+
+    <div class="container mt-4">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-5">Nova Tarefa</h1>
+                <p class="lead">Insira os detalhes</p>
+            </div>
+        </div>
+        <form method="POST" action="insert">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="description">Descrição:</label>
+                        <input type="text" name="description" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="date">Data e Horário:</label>
+                        <input type="date" name="date" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="done">Feito:</label>
+                        <select name="done" class="form-control" required>
+                            <option value="true">Sim</option>
+                            <option value="false">Não</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <button type="submit" value="salvar" class="btn btn-success">Salvar</button>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-info" href="/">Voltar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+{{end}}
